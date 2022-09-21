@@ -40,6 +40,7 @@ class Element {
   }
 }
 
+// first paddle
 const playerOne = new Element({
   // use constructor to name element and give its properties
   x: 10,
@@ -57,13 +58,14 @@ const playerTwo = new Element({
   y: 200,
   width: 15,
   height: 80,
-  color: "#fff",
+  color: "#a0d6b4",
   gravity: 2,
 });
 
 //ball
 const ball = new Element({
   // use constructor to name element and give its properties
+  // creates the ball's look
   x: 850 / 2,
   y: 600 / 2,
   width: 15,
@@ -82,38 +84,25 @@ function drawElement(element) {
 
 // Player one score text
 function displayScoreOne() {
-  context.font = "18 Arial";
+  context.font = "40px Arial";
   context.fillStyle = "#fff";
   context.fillText(scoreOne, canvas.width / 2 - 60, 30);
 }
 // Player 2 score text
 function displayScoreTwo() {
-  context.font = "18 Arial";
+  context.font = "40px Arial";
   context.fillStyle = "#fff";
-  context.fillText(scoreOne, canvas.width / 2 + 60, 30);
+  context.fillText(scoreTwo, canvas.width / 2 + 60, 30);
 }
 
-// make ball bounce
-function ballBounce() {
-  if (ball.y + ball.gravity <= 0 || ball.y + ball.gravity >= canvas.height) {
-    ball.gravity = ball.gravity * -1;
-    ball.y += ball.gravity;
-    ball.x += ball.speed;
-  } else {
-    ball.y += ball.gravity;
-    ball.x += ball.speed;
-  }
-  ballWallCollision();
-}
 // detect collision
 function ballWallCollision() {
   if (
     (ball.y + ball.gravity <= playerTwo.y + playerTwo.height &&
       ball.x + ball.width + ball.speed >= playerTwo.x &&
       ball.y + ball.gravity > playerTwo.y) ||
-    (ball.y + ball.gravity <= playerOne.y + playerOne.height &&
-      ball.x + ball.width + ball.speed >= playerOne.x &&
-      ball.y + ball.gravity > playerOne.y)
+    (ball.y + ball.gravity > playerOne.y &&
+      ball.x + ball.speed <= playerOne.x + playerOne.width)
   ) {
     ball.speed = ball.speed * -1;
   } else if (ball.x + ball.speed < playerOne.x) {
@@ -126,10 +115,22 @@ function ballWallCollision() {
     ball.speed = ball.speed * -1;
     ball.x = 100 + ball.speed;
     ball.y += ball.gravity;
-  }
-  drawElements();
+  } // LEFT OFF HERE, HAVE TO GET THE BALL TO MOVE
+  return drawElements();
 }
-// draw elements
+// make ball bounce
+function ballBounce() {
+  if (ball.y + ball.gravity <= 0 || ball.y + ball.gravity >= canvas.height) {
+    ball.gravity = ball.gravity * -1;
+    ball.y += ball.gravity;
+    ball.x += ball.speed;
+  } else {
+    ball.y += ball.gravity;
+    ball.x += ball.speed;
+  }
+  return ballWallCollision();
+}
+// draw all elements
 function drawElements() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawElement(playerOne);
@@ -139,7 +140,7 @@ function drawElements() {
   displayScoreTwo();
 }
 function loop() {
-  drawElements();
+  ballBounce();
   window.requestAnimationFrame(loop);
 }
 loop();
