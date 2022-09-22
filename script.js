@@ -7,9 +7,11 @@ let scoreOne = 0;
 let scoreTwo = 0;
 
 // key movement
-window.addEventListener("keypress", doKeyDown, false);
+window.addEventListener("keydown", doKeyDown);
 function doKeyDown(e) {
   const key = e.key;
+  if (key == "SpaceBar") {
+  }
   if (key == "w" && playerOne.y - playerOne.gravity > 0) {
     playerOne.y -= playerOne.gravity * 4;
   } else if (
@@ -18,10 +20,10 @@ function doKeyDown(e) {
   ) {
     playerOne.y += playerOne.gravity * 4;
   }
-  if (key == "i" && playerTwo.y - playerTwo.gravity > 0) {
+  if (key == "ArrowUp" && playerTwo.y - playerTwo.gravity > 0) {
     playerTwo.y -= playerTwo.gravity * 4;
   } else if (
-    key == "k" &&
+    key == "ArrowDown" &&
     playerTwo.y + playerTwo.height + playerTwo.gravity < canvas.height
   ) {
     playerTwo.y += playerTwo.gravity * 4;
@@ -132,6 +134,28 @@ function ballBounce() {
 }
 // draw all elements
 function drawElements() {
+  //use lineTo to draw lines on canvas to mimic tennis court
+  context.beginPath();
+  context.moveTo(101, 200);
+  context.lineTo(290, 199);
+  context.moveTo(503, 202);
+  context.lineTo(290, 200);
+  context.moveTo(500, 43);
+  context.lineTo(501, 361);
+  context.moveTo(87, 44);
+  context.lineTo(87, 359);
+  context.moveTo(1, 45);
+  context.lineTo(601, 45);
+  context.moveTo(1, 357);
+  context.lineTo(600, 357);
+  context.moveTo(599, 45);
+  context.lineTo(600, 358);
+  context.moveTo(-1, 47);
+  context.lineTo(-1, 358);
+  context.moveTo(297, 1);
+  context.lineTo(296, 399);
+  context.strokeStyle = "white";
+  context.stroke();
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawElement(playerOne);
   drawElement(playerTwo);
