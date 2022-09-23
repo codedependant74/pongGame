@@ -1,5 +1,7 @@
 # Kei's Classic: Pong Game
 
+Access Game here: https://codedependant74.github.io/pongGame/
+
 ## Description
 
 This is a classic Pong Game made to resemble a tennis court. It is a multiplayer game with player 1 using the 'w' & 's' keys as up and down to move the left paddle, respectfully. Player 2 uses the up and down arrow keys to move the right paddle.
@@ -17,6 +19,10 @@ This is a classic Pong Game made to resemble a tennis court. It is a multiplayer
     - HTML
     - CSS
     - JavaScript
+
+## Unsolved Problems
+
+    - After Reset Game is pressed, and space bar is pressed directly after it glitches. User will have to click on game board the press space bar for it to work properly.
 
 ## Upcoming Features
 
