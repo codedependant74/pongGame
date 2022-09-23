@@ -6,9 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Passion+One&family=Rubik+Dirt&display=swap" rel="stylesheet">
     <title>Kei's Classic | Pong Game</title>
 </head>
 <body>
-    <canvas id="pongGame"></canvas>
+    <div id="gameContainer">
+        <p>Press Space to Start Game!</p>
+        <div id="scoreText">0 : 0</div>
+        <canvas id="pongGame"></canvas>
+        <br>
+        <button id="resetBtn">Reset Game</button>
+    </div>
 </body>
 </html>

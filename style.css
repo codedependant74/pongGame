@@ -1,3 +1,36 @@
+*{
+    font-family: 'Passion One', cursive;
+    font-family: 'Rubik Dirt', cursive;
+}
+#gameContainer{
+    text-align: center;
+}
+
 canvas {
-    background-color: #1E8FD5 ;
+    background-color: #1E8FD5;
+    border: 3px solid black;
+}
+p{
+    font-size: 20px;
+}
+#scoreText{
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+#resetBtn{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    width: 150px;
+    height: 50px;
+    color: #fff;
+    background-color: #7d90a2;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 5px 5px 2px 1px #91bcd7;
+    cursor: pointer;
+}
+#resetBtn:active{
+    box-shadow: 0 5px #95bdd6;
+    transform: translateY(4px);
 }
