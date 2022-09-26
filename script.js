@@ -8,11 +8,11 @@ const popup = document.getElementById("popup");
 const startBtn = document.querySelector("#startBtn");
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
-const boardBackground = gameBoard.style.backgroundImage();
-// boardBackground.src = "./simone-viani-2XPHSXVT_Ls-unsplash.jpg";
-// boardBackground.addEventListener("load", () => {
-//   ctx.drawImage(boardBackground, 0, 0, gameWidth, gameHeight);
-// });
+const boardBackground = new Image();
+boardBackground.src = "./simone-viani-2XPHSXVT_Ls-unsplash.jpg";
+boardBackground.addEventListener("load", () => {
+  ctx.drawImage(boardBackground, 0, 0, gameWidth, gameHeight);
+});
 const paddle1Color = "#fff";
 const paddle2Color = "#a0d6b4";
 const paddleBorder = "black";
@@ -60,7 +60,7 @@ function nextTick() {
 }
 function clearBoard() {
   // game board characteristics
-  // ctx.fillStyle = boardBackground;
+  ctx.fillStyle = boardBackground;
   ctx.fillRect(0, 0, gameWidth, gameHeight);
 }
 function drawPaddles() {
