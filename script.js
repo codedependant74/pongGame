@@ -8,7 +8,11 @@ const popup = document.getElementById("popup");
 const startBtn = document.querySelector("#startBtn");
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
-const boardBackground = "#1E8FD5";
+const boardBackground = gameBoard.style.backgroundImage();
+// boardBackground.src = "./simone-viani-2XPHSXVT_Ls-unsplash.jpg";
+// boardBackground.addEventListener("load", () => {
+//   ctx.drawImage(boardBackground, 0, 0, gameWidth, gameHeight);
+// });
 const paddle1Color = "#fff";
 const paddle2Color = "#a0d6b4";
 const paddleBorder = "black";
@@ -55,10 +59,12 @@ function nextTick() {
   }, 10);
 }
 function clearBoard() {
-  ctx.fillStyle = boardBackground;
+  // game board characteristics
+  // ctx.fillStyle = boardBackground;
   ctx.fillRect(0, 0, gameWidth, gameHeight);
 }
 function drawPaddles() {
+  // paddles characteristics
   ctx.strokeStyle = paddleBorder;
 
   ctx.fillStyle = paddle1Color;
@@ -70,6 +76,7 @@ function drawPaddles() {
   ctx.strokeRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
 }
 function createBall() {
+  // initial ball movement starts at a slow speed then increases as it is hit
   ballSpeed = 1;
   if (Math.round(Math.random()) == 1) {
     ballXDirection = 1;
@@ -81,7 +88,7 @@ function createBall() {
   } else {
     ballYDirection = Math.random() * -1; //more random directions
   }
-  ballX = gameWidth / 2;
+  ballX = gameWidth / 2; //places the ball in center
   ballY = gameHeight / 2;
   drawBall(ballX, ballY);
 }
@@ -90,15 +97,17 @@ function moveBall() {
   ballY += ballSpeed * ballYDirection;
 }
 function drawBall(ballX, ballY) {
+  // creates the ball characteristics
   ctx.fillStyle = ballColor;
   ctx.strokeStyle = ballBorderColor;
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.arc(ballX, ballY, ballRadius, 0, 2 * Math.PI);
+  ctx.arc(ballX, ballY, ballRadius, 0, 2 * Math.PI); // Makes the ball round
   ctx.stroke();
   ctx.fill();
 }
 function checkCollision() {
+  // if ball hits wall, update score. If ball hit the paddle then the ball changes direction for the opponent to hit the ball
   if (ballY <= 0 + ballRadius) {
     ballYDirection *= -1;
   }
@@ -133,6 +142,7 @@ function checkCollision() {
   }
 }
 function changeDirection(event) {
+  //assign keyboard keys to paddle motion and start game
   const keyPressed = event.keyCode;
   const start = 32;
   const paddle1Up = 87;
@@ -200,23 +210,3 @@ function resetGame() {
   clearInterval(intervalID);
   clearBoard();
 }
-
-//   context.beginPath();
-//   context.moveTo(101, 200);
-//   context.lineTo(290, 199);
-//   context.moveTo(503, 202);
-//   context.lineTo(290, 200);
-//   context.moveTo(500, 43);
-//   context.lineTo(501, 361);
-//   context.moveTo(87, 44);
-//   context.lineTo(87, 359);
-//   context.moveTo(1, 45);
-//   context.lineTo(601, 45);
-//   context.moveTo(1, 357);
-//   context.lineTo(600, 357);
-//   context.moveTo(599, 45);
-//   context.lineTo(600, 358);
-//   context.moveTo(-1, 47);
-//   context.lineTo(-1, 358);
-//   context.moveTo(297, 1);
-//   context.lineTo(296, 399);

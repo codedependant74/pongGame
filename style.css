@@ -1,19 +1,24 @@
-*{
+body{
     font-family: 'Passion One', cursive;
     font-family: 'Rubik Dirt', cursive;
+    background-image: url('./shep-mcallister-J1j3cImjmgE-unsplash.jpg');
+    background-size: cover;
 }
 #gameContainer{
     text-align: center;
 }
 
 canvas {
-    background-color: #1E8FD5;
+    /* background-image: url("./simone-viani-2XPHSXVT_Ls-unsplash.jpg");
+    background-size: contain; */
     border: 3px solid black;
 }
 p{
+    color: white;
     font-size: 20px;
 }
 #scoreText{
+    color: white;
     font-size: 40px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     
@@ -24,10 +29,10 @@ p{
     width: 150px;
     height: 50px;
     color: #fff;
-    background-color: #7d90a2;
+    background-color: #6C935C;
     border: none;
     border-radius: 15px;
-    box-shadow: 5px 5px 2px 1px #91bcd7;
+    box-shadow: 5px 5px 2px 1px #B5E0A4;
     cursor: pointer;
 }
 #resetBtn:active{
