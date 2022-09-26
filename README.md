@@ -23,8 +23,10 @@ This is a classic Pong Game made to resemble a tennis court. It is a multiplayer
 ## Unsolved Problems
 
     - After Reset Game is pressed, and space bar is pressed directly after it glitches. User will have to click on game board the press space bar for it to work properly.
+    - Add tennis court as background
 
 ## Upcoming Features
 
     - Option to play multiplayer or versus computer
+    - Game start screen
     - Game over screen to display winner
