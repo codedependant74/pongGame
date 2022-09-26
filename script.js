@@ -60,7 +60,7 @@ function nextTick() {
 }
 function clearBoard() {
   // game board characteristics
-  ctx.fillStyle = boardBackground;
+  ctx.fillStyle = "#A2C128";
   ctx.fillRect(0, 0, gameWidth, gameHeight);
 }
 function drawPaddles() {
